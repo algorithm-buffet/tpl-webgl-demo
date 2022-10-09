@@ -52,9 +52,10 @@ export default function Root() {
                     <p className="list-title">{title}</p>
                     <ul>
                     {comps.map((comp: any)=>{
+                        const targetUrl = q ? `/${category}/${comp.path}?q=${q}` : `/${category}/${comp.path}`;
                         return <li key={comp.path}>
                             <NavLink
-                                to={`/${category}/${comp.path}?q=${q}`}
+                                to={targetUrl}
                                 className={({ isActive, isPending }) =>
                                 isActive
                                     ? "active"
