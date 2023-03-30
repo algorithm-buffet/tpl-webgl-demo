@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Outlet, useLoaderData, NavLink, useNavigation, Form, useSubmit } from "react-router-dom";
 
 export default function Root() {
-  const { demos, q } = useLoaderData() as any;
+  const { demos, q = '' } = useLoaderData() as any;
   const navigation = useNavigation();
 
   const submit = useSubmit();
