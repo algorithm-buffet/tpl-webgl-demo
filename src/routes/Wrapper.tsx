@@ -59,8 +59,10 @@ export function Favorite({ demo }: any) {
 
 export default function(props: any) {
     const {demo, pathArr} = useLoaderData() as any;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
     return <div id="demo-detail">
-        <div className="demo-wrapper">
+        <div className="demo-wrapper" style={{width, height}}>
             {props.children}
         </div>
         <div className="demo-bar"><Favorite demo={demo}/></div>
