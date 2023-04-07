@@ -8,6 +8,27 @@ import {
 
 import "./wrapper.less";
 
+interface IReferLinks {
+  reference?: string | string[];
+}
+const ReferLinks = (props: IReferLinks) => {
+  const { reference } = props;
+  const references = ([] as string[]).concat(reference || []);
+
+  return (
+    references.length > 0 ? 
+      <div className="references-wrapper">
+        {references.map((curReference: string, idx) => {
+          const linkArr = curReference.split('|');
+          return (
+            <a key={idx} className="references-link" target="_blank" href={linkArr[1]}>{linkArr[0]}</a>
+          )
+        })}
+      </div>
+     : null
+  )
+}
+
 export function Favorite({ demo }: any) {
   const fetcher = useFetcher();
   let favorite = demo.favorite;
@@ -29,6 +50,8 @@ export function Favorite({ demo }: any) {
       >
         {favorite ? "★" : "☆"}
       </button>
+
+      <ReferLinks reference={demo.reference}/>
     </fetcher.Form>
   );
 }

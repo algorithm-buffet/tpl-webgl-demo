@@ -170,5 +170,8 @@ function Demo(props:any) {
 
 Demo.title = "2D平面 - F字母";
 Demo.path = "2df";
+Demo.reference = [
+  'WebGL2 3D - Cameras|https://webgl2fundamentals.org/webgl/lessons/webgl-3d-camera.html'
+]
 
 export default Demo;
